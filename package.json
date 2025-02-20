@@ -5,6 +5,7 @@
   "imports": {
     "#design/*": "./src/shared/design/*/index.ts",
     "#design/*.css": "./src/shared/design/*/index.css",
+    "#design": "./src/shared/design/index.ts",
     "#shared/*": "./src/shared/*.ts"
   },
   "scripts": {

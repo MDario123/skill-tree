@@ -1,9 +1,9 @@
 import type { JSX } from "react";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { Box, CssBaseline } from "@mui/material";
+import { Box } from "@mui/material";
 
 import { Header } from "./Header";
-import { Theme } from "#design/theme";
+import { Theme } from "#design";
 
 export default function RootLayout({
   children,
