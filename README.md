@@ -53,7 +53,7 @@ npm run dev
   - [ ] Manuel (Auth, choice pending)
 - [ ] Creates part of a Design System, using a 3rd party Component Library.
   - [ ] Alberto
-  - [ ] Manuel
+  - [x] Manuel
 - [ ] Uses server-side data fetching. (In the API)
   - [ ] Alberto
   - [ ] Manuel
