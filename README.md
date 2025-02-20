@@ -65,7 +65,7 @@ npm run dev
   - [ ] Manuel (GET)
 - [ ] Uses both Client and Server components. (Next.js)
   - [ ] Alberto
-  - [ ] Manuel
+  - [x] Manuel
 - [ ] Uses a future-proofed Context.
   - [ ] Alberto
   - [ ] Manuel
