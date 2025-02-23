@@ -11,7 +11,7 @@ npm run start
 
 ## How to develop
 
-Configure `.env` with supabase credentials `NEXT_PUBLIC_SUPABASE_URL`, and `NEXT_PUBLIC_SUPABASE_ANON_KEY`. 
+Configure `.env` with supabase credentials `NEXT_PUBLIC_SUPABASE_URL`, and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
 Configure your supabase database with the schema in `./db/schema.sql`.
 
 ```sh
