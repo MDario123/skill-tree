@@ -82,11 +82,11 @@ npm run dev
 ## Content
 
 - [ ] Graph
-  - [ ] common nodes
-  - [ ] boundary nodes
-  - [ ] collapse boundary nodes
-  - [ ] allow check on manual nodes
-  - [ ] auto check on auto nodes
+  - [x] Skill nodes
+  - [ ] Checkpoint nodes
+  - [ ] Can collapse checkpoint nodes, hiding all skill nodes between this checkpoint and the next
+  - [x] Can mark skill nodes as completed iff all dependencies are fullfilled
+  - [ ] Automatically marks completed checkpoint nodes with all dependencies fullfilled
   - [ ] edges
 - [ ] User
   - [ ] Register

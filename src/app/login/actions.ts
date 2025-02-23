@@ -3,10 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import { createClient } from "#shared/services/supabase/server";
+import { createServerClient } from "#shared/services/supabase";
 
 export async function login(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await createServerClient();
 
   const data = {
     email: formData.get("email") as string,
@@ -24,7 +24,7 @@ export async function login(formData: FormData) {
 }
 
 export async function signup(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await createServerClient();
 
   const data = {
     email: formData.get("email") as string,

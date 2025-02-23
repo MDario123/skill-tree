@@ -4,8 +4,4 @@ ignore-dirs:
 ignores:
   - "@types/*"
   - eslint-config-next
-  - "@emotion/react"
-  - "@emotion/styled"
-  - "@fontsource/roboto"
   - "@mui/icons-material"
-  - "@mui/material"
