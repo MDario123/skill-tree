@@ -5,6 +5,8 @@ import { Box } from "@mui/material";
 import { Header } from "./Header";
 import { Theme } from "#design";
 
+import "./global.css";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>): JSX.Element {
@@ -14,7 +16,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <Theme>
             <Header />
-            <Box sx={{ padding: 2, display: "flex", justifyContent: "center" }}>
+            <Box flexGrow={1} display="flex" justifyContent="center">
               {children}
             </Box>
           </Theme>

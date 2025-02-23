@@ -1,11 +1,23 @@
 import type { JSX } from "react";
-import { AppBar } from "@mui/material";
+import { AppBar, Box, Toolbar } from "@mui/material";
 import { NavLink } from "#design";
+import { createClient } from "#shared/services/supabase/server";
 
-export function Header(): JSX.Element {
+export async function Header(): Promise<JSX.Element> {
+  const supabase = await createClient();
+  const { error, data } = await supabase.auth.getUser();
+
   return (
     <AppBar position="relative" sx={{ paddingX: 1, paddingY: 0.5 }}>
-      <NavLink href="/" content="Home" />
+      <Toolbar>
+        <NavLink href="/" content="Home" />
+        <Box flexGrow={1} />
+        {error || !data?.user ? (
+          <NavLink href="/login" content={"Log In"} />
+        ) : (
+          <NavLink href="/logout" content={"Logout"} />
+        )}
+      </Toolbar>
     </AppBar>
   );
 }
