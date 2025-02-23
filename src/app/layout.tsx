@@ -16,7 +16,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <Theme>
             <Header />
-            <Box flexGrow={1} display="flex" justifyContent="center">
+            <Box flexGrow={1} display="flex" justifyContent="center" padding={2}>
               {children}
             </Box>
           </Theme>
