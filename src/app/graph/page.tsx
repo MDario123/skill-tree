@@ -51,7 +51,7 @@ function Graph(): JSX.Element {
 
       setCurrentViewport(constrainedViewport);
     },
-    [setCurrentViewport],
+    [setCurrentViewport, minX, maxX],
   );
 
   return (

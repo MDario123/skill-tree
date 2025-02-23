@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { AppBar, Toolbar } from "@mui/material";
+import { AppBar, Box, Toolbar } from "@mui/material";
 import { NavLink } from "#design";
 import { createServerClient } from "#shared/services/supabase";
 

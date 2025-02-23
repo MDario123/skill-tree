@@ -17,7 +17,7 @@ export function SkillNode({ id, data }: NodeProps<SkillNode>) {
         completed: false,
       });
     }
-  }, [updateNodeData, dependenciesCompleted, data.completed]);
+  }, [updateNodeData, id, dependenciesCompleted, data.completed]);
 
   // Toggle node completion.
   // Can be marked as completed iff dependencies are completed
@@ -29,7 +29,7 @@ export function SkillNode({ id, data }: NodeProps<SkillNode>) {
     updateNodeData(id, {
       completed: !data.completed,
     });
-  }, [updateNodeData, dependenciesCompleted, data.completed]);
+  }, [updateNodeData, id, dependenciesCompleted, data.completed]);
 
   return (
     <Box>
