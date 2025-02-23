@@ -2,7 +2,7 @@
 
 ## How to run
 
-- [ ] Write how to configure external services
+Configure the `.env` file with the supabase credentials `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
 
 ```sh
 npm install
@@ -11,7 +11,8 @@ npm run start
 
 ## How to develop
 
-- [ ] Write how to configure external services for development
+Configure `.env` with supabase credentials `NEXT_PUBLIC_SUPABASE_URL`, and `NEXT_PUBLIC_SUPABASE_ANON_KEY`. 
+Configure your supabase database with the schema in `./db/schema.sql`.
 
 ```sh
 npm install
@@ -49,8 +50,8 @@ npm run dev
 ## Feature Requirements
 
 - [ ] Integrates at least one external backend service, such as Auth, CMS, Database, etc.
-  - [ ] Alberto (Supabase)
-  - [ ] Manuel (Auth, choice pending)
+  - [x] Alberto (Auth with Supabase)
+  - [ ] Manuel (Graph data handling with Supabase)
 - [ ] Creates part of a Design System, using a 3rd party Component Library.
   - [ ] Alberto
   - [x] Manuel
@@ -63,8 +64,8 @@ npm run dev
 - [ ] Exposes at least one API Route.
   - [ ] Alberto (POST)
   - [ ] Manuel (GET)
-- [ ] Uses both Client and Server components. (Next.js)
-  - [ ] Alberto
+- [x] Uses both Client and Server components. (Next.js)
+  - [x] Alberto
   - [x] Manuel
 - [ ] Uses a future-proofed Context.
   - [ ] Alberto
@@ -84,14 +85,14 @@ npm run dev
 - [ ] Graph
   - [x] Skill nodes
   - [ ] Checkpoint nodes
-  - [ ] Can collapse checkpoint nodes, hiding all skill nodes between this checkpoint and the next
   - [x] Can mark skill nodes as completed iff all dependencies are fullfilled
   - [ ] Automatically marks completed checkpoint nodes with all dependencies fullfilled
+  - [ ] Can collapse checkpoint nodes, hiding all skill nodes between this checkpoint and the next (Optional)
   - [ ] edges
 - [ ] User
-  - [ ] Register
-  - [ ] Login
-  - [ ] Logout
+  - [x] Register
+  - [x] Login
+  - [x] Logout
   - [ ] (Optional) Delete account
 - [ ] User Graph Interaction
   - [ ] Get graph with your checks
