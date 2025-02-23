@@ -8,7 +8,6 @@ import {
   ReactFlowProvider,
   useEdgesState,
   useNodesState,
-  useReactFlow,
   Viewport,
 } from "@xyflow/react";
 
@@ -29,7 +28,6 @@ const calculateBoundaries = () => {
 function Graph(): JSX.Element {
   const [nodes, , onNodesChange] = useNodesState(initNodes);
   const [edges, , onEdgesChange] = useEdgesState(initEdges);
-  const { setViewport } = useReactFlow();
   const [currentViewport, setCurrentViewport] = useState({
     x: 10,
     y: FIXED_Y,
@@ -52,9 +50,8 @@ function Graph(): JSX.Element {
       };
 
       setCurrentViewport(constrainedViewport);
-      setViewport(constrainedViewport, { duration: 0 });
     },
-    [setViewport],
+    [setCurrentViewport],
   );
 
   return (
