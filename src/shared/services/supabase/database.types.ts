@@ -9,26 +9,117 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      activated_nodes: {
+      edges: {
         Row: {
-          active: boolean;
-          created_at: string;
+          edge_id: string;
           id: number;
-          node_id: number;
+          source_node_id: string;
+          target_node_id: string;
         };
         Insert: {
-          active: boolean;
-          created_at?: string;
-          id?: number;
-          node_id: number;
+          edge_id: string;
+          id: number;
+          source_node_id: string;
+          target_node_id: string;
         };
         Update: {
-          active?: boolean;
+          edge_id?: string;
+          id?: number;
+          source_node_id?: string;
+          target_node_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "edges_source_node_id_fkey";
+            columns: ["source_node_id"];
+            isOneToOne: false;
+            referencedRelation: "nodes";
+            referencedColumns: ["node_id"];
+          },
+          {
+            foreignKeyName: "edges_target_node_id_fkey";
+            columns: ["target_node_id"];
+            isOneToOne: false;
+            referencedRelation: "nodes";
+            referencedColumns: ["node_id"];
+          },
+        ];
+      };
+      nodes: {
+        Row: {
+          id: number;
+          node_id: string;
+          title: string;
+          type_id: number;
+        };
+        Insert: {
+          id: number;
+          node_id: string;
+          title: string;
+          type_id: number;
+        };
+        Update: {
+          id?: number;
+          node_id?: string;
+          title?: string;
+          type_id?: number;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "nodes_type_id_fkey";
+            columns: ["type_id"];
+            isOneToOne: false;
+            referencedRelation: "nodetypes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      nodetypes: {
+        Row: {
+          created_at: string;
+          id: number;
+          name: string;
+        };
+        Insert: {
           created_at?: string;
           id?: number;
-          node_id?: number;
+          name: string;
+        };
+        Update: {
+          created_at?: string;
+          id?: number;
+          name?: string;
         };
         Relationships: [];
+      };
+      nodeuserdata: {
+        Row: {
+          completed: boolean;
+          id: number;
+          node_id: string;
+          user_id: string;
+        };
+        Insert: {
+          completed?: boolean;
+          id: number;
+          node_id: string;
+          user_id: string;
+        };
+        Update: {
+          completed?: boolean;
+          id?: number;
+          node_id?: string;
+          user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "nodeuserdata_node_id_fkey";
+            columns: ["node_id"];
+            isOneToOne: false;
+            referencedRelation: "nodes";
+            referencedColumns: ["node_id"];
+          },
+        ];
       };
     };
     Views: {
