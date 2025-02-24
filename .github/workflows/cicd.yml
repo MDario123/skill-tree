@@ -39,6 +39,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: dkershner6/vercel-set-env-action@v3
+        with:
+          token: ${{ secrets.VERCEL_TOKEN }}
+          teamId: ${{ secrets.ORG_ID }}
+          projectName: ${{ vars.PROJECT_NAME }}
+          envVariableKeys: NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY
+        env:
+          # Supabase
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          TARGET_NEXT_PUBLIC_SUPABASE_URL: production
+          TYPE_NEXT_PUBLIC_SUPABASE_URL: encrypted
+
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          TARGET_NEXT_PUBLIC_SUPABASE_ANON_KEY: production
+          TYPE_NEXT_PUBLIC_SUPABASE_ANON_KEY: encrypted
+
       - uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
