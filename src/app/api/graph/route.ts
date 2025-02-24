@@ -19,7 +19,9 @@ export async function GET(): Promise<Response> {
     title,
     ...nodetypes!inner(
       type:name
-    )
+    ),
+    x,
+    y
     `,
     );
 
@@ -44,7 +46,7 @@ export async function GET(): Promise<Response> {
   const nodes = queryNodesData.map((node) => ({
     id: node.node_id,
     type: node.type,
-    position: { x: 0, y: 0 },
+    position: { x: node.x, y: node.y },
     data: { title: node.title },
   }));
 
