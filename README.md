@@ -32,11 +32,11 @@ npm run dev
 
 ## Project Requirements
 
-- [ ] Has a README and appropriate documentation.
-- [ ] Provides a Frontend Architecture Diagram
-  - [ ] including providers, services, etc.
+- [x] Has a README and appropriate documentation.
+- [x] Provides a Frontend Architecture Diagram
+  - [x] including providers, services, etc.
 - [x] Uses Continuous Integration (such as GitHub Actions).
-- [ ] Deploys with CD on your platform of choice. (It's going to be Vercel)
+- [x] Deploys with CD on your platform of choice. (It's going to be Vercel)
 
 ## Code Requirements
 
@@ -49,9 +49,9 @@ npm run dev
 
 ## Feature Requirements
 
-- [ ] Integrates at least one external backend service, such as Auth, CMS, Database, etc.
+- [x] Integrates at least one external backend service, such as Auth, CMS, Database, etc.
   - [x] Alberto (Auth with Supabase)
-  - [ ] Manuel (Graph data handling with Supabase)
+  - [x] Manuel (Graph data handling with Supabase)
 - [ ] Creates part of a Design System, using a 3rd party Component Library.
   - [ ] Alberto
   - [x] Manuel
@@ -63,16 +63,16 @@ npm run dev
   - [ ] Manuel (POST)
 - [ ] Exposes at least one API Route.
   - [ ] Alberto (POST)
-  - [ ] Manuel (GET)
+  - [x] Manuel (GET)
 - [x] Uses both Client and Server components. (Next.js)
   - [x] Alberto
   - [x] Manuel
 - [ ] Uses a future-proofed Context.
   - [ ] Alberto
-  - [ ] Manuel
+  - [x] Manuel
 - [ ] Implements Services as Hooks.
   - [ ] Alberto
-  - [ ] Manuel
+  - [x] Manuel
 - [ ] Uses Suspense in at least one place.
   - [ ] Alberto
   - [ ] Manuel

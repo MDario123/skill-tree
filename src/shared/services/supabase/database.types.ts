@@ -17,7 +17,7 @@ export type Database = {
           target_node_id: string;
         };
         Insert: {
-          edge_id: string;
+          edge_id?: string;
           id: number;
           source_node_id: string;
           target_node_id: string;
