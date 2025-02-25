@@ -4,9 +4,9 @@ import { useCallback, useEffect } from "react";
 
 import { useDependenciesCompleted } from "./helpers";
 import { SkillNodeVisual } from "#design/node";
-import type { SkillNode } from "../types";
+import type { SkillNode as SkillNodeType } from "../types";
 
-export function SkillNode({ id, data }: NodeProps<SkillNode>) {
+export function SkillNode({ id, data }: NodeProps<SkillNodeType>) {
   const dependenciesCompleted = useDependenciesCompleted(id);
   const { updateNodeData } = useReactFlow();
 

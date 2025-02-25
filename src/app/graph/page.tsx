@@ -1,40 +1,49 @@
 "use client";
 
-import { useCallback, useState, type JSX } from "react";
-import { edges as initEdges, nodes as initNodes } from "#shared/graph";
-import { Container } from "@mui/material";
+import type { JSX } from "react";
+import { useCallback, useState } from "react";
+import { Container, Typography } from "@mui/material";
 import {
+  applyNodeChanges,
+  Node,
+  NodeChange,
   ReactFlow,
   ReactFlowProvider,
-  useEdgesState,
-  useNodesState,
   Viewport,
 } from "@xyflow/react";
 
+import { useGraphContext } from "#shared/services/graph";
 import "@xyflow/react/dist/style.css";
-import { nodeTypes } from "../../shared/graph/raw";
+import { CheckpointNode, nodeTypes, SkillNode } from "#shared/graph";
 
 const FIXED_Y = 0;
 
-const calculateBoundaries = () => {
+function calculateBoundaries(nodes: Node[]): { minX: number; maxX: number } {
   return {
     minX: -Math.max(
-      ...initNodes.map((node) => node.position.x + (node.width || 0)),
+      ...nodes.map((node) => node.position.x + (node.width || 0)),
     ),
-    maxX: Math.min(...initNodes.map((node) => node.position.x)),
+    maxX: Math.min(...nodes.map((node) => node.position.x)),
   };
-};
+}
 
 function Graph(): JSX.Element {
-  const [nodes, , onNodesChange] = useNodesState(initNodes);
-  const [edges, , onEdgesChange] = useEdgesState(initEdges);
+  const { isFetching, nodes, setNodes, edges } = useGraphContext();
+
+  const onNodesChange = useCallback(
+    (changes: NodeChange<SkillNode | CheckpointNode>[]) => {
+      setNodes((nodes) => applyNodeChanges(changes, nodes));
+    },
+    [setNodes],
+  );
+
   const [currentViewport, setCurrentViewport] = useState({
     x: 10,
     y: FIXED_Y,
     zoom: 1,
   });
 
-  const { minX, maxX } = calculateBoundaries();
+  const { minX, maxX } = calculateBoundaries(nodes);
 
   const handleViewportChange = useCallback(
     (newViewport: Viewport) => {
@@ -54,6 +63,10 @@ function Graph(): JSX.Element {
     [setCurrentViewport, minX, maxX],
   );
 
+  if (isFetching) {
+    return <Typography>Loading...</Typography>;
+  }
+
   return (
     <Container sx={{ width: "100%", height: "100%", overflow: "hidden" }}>
       <ReactFlow
@@ -61,7 +74,6 @@ function Graph(): JSX.Element {
         nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
         viewport={currentViewport}
         onViewportChange={handleViewportChange}
         panOnDrag={false}

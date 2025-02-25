@@ -1,4 +1,5 @@
 import { Node } from "@xyflow/react";
+import { SkillNode } from "./render";
 
 type CheckpointNodeData = {
   title: string;
@@ -11,3 +12,7 @@ type CheckpointNode = Node<CheckpointNodeData, "checkpoint">;
 type SkillNode = Node<SkillNodeData, "skill">;
 
 export type { CheckpointNode, SkillNode };
+
+export const nodeTypes = {
+  skill: SkillNode,
+};

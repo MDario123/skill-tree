@@ -19,12 +19,19 @@ export async function GET(): Promise<Response> {
     title,
     ...nodetypes!inner(
       type:name
-    )
+    ),
+    nodeuserdata(
+      completed
+    ),
+    x,
+    y
     `,
     );
 
   if (queryNodesError || queryNodesData === null) {
-    return new Response(null, { status: 500 });
+    return new Response(JSON.stringify({ error: queryNodesError }), {
+      status: 500,
+    });
   }
 
   const { data: queryEdgesData, error: queryEdgesError } = await supabase
@@ -44,8 +51,11 @@ export async function GET(): Promise<Response> {
   const nodes = queryNodesData.map((node) => ({
     id: node.node_id,
     type: node.type,
-    position: { x: 0, y: 0 },
-    data: { title: node.title },
+    position: { x: node.x, y: node.y },
+    data: {
+      title: node.title,
+      completed: node.nodeuserdata.at(0)?.completed ?? false,
+    },
   }));
 
   const edges = queryEdgesData.map((edge) => ({

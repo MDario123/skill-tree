@@ -17,7 +17,7 @@ export type Database = {
           target_node_id: string;
         };
         Insert: {
-          edge_id: string;
+          edge_id?: string;
           id: number;
           source_node_id: string;
           target_node_id: string;
@@ -51,18 +51,24 @@ export type Database = {
           node_id: string;
           title: string;
           type_id: number;
+          x: number;
+          y: number;
         };
         Insert: {
           id: number;
-          node_id: string;
+          node_id?: string;
           title: string;
           type_id: number;
+          x: number;
+          y: number;
         };
         Update: {
           id?: number;
           node_id?: string;
           title?: string;
           type_id?: number;
+          x?: number;
+          y?: number;
         };
         Relationships: [
           {
